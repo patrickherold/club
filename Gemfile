@@ -36,6 +36,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'kaminari'
 gem "cancan"
+gem 'geocoder'
 
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS

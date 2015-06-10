@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610140544) do
+ActiveRecord::Schema.define(version: 20150610154515) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "user_id",    limit: 4
+    t.string   "address",    limit: 255
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
   end
 
   add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree
@@ -28,6 +31,9 @@ ActiveRecord::Schema.define(version: 20150610140544) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
     t.integer  "topic_id",   limit: 4
+    t.string   "address",    limit: 255
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
   end
 
   add_index "comments", ["topic_id"], name: "index_comments_on_topic_id", using: :btree
@@ -39,6 +45,9 @@ ActiveRecord::Schema.define(version: 20150610140544) do
     t.datetime "updated_at",              null: false
     t.integer  "user_id",     limit: 4
     t.integer  "category_id", limit: 4
+    t.string   "address",     limit: 255
+    t.float    "latitude",    limit: 24
+    t.float    "longitude",   limit: 24
   end
 
   add_index "topics", ["category_id"], name: "index_topics_on_category_id", using: :btree
@@ -64,6 +73,9 @@ ActiveRecord::Schema.define(version: 20150610140544) do
     t.datetime "updated_at",                                      null: false
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
+    t.string   "address",                limit: 255
+    t.float    "latitude",               limit: 24
+    t.float    "longitude",              limit: 24
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
