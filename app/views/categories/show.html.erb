@@ -1,0 +1,12 @@
+<h1>Category: <%= @category.title %></h1>
+<%= form_for Topic.new do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.hidden_field :category_id, :value => params[:id] %>
+  <%= f.submit %>
+<% end %>
+<ul>
+  <% @category.topics.each do |topic| %>
+    <li><%= link_to topic.title, "/topics/#{topic.id}"%></li>
+  <% end %>
+<ul>

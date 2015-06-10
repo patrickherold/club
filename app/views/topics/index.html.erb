@@ -1,0 +1,17 @@
+<h1>Topics</h1>
+<%= form_for Topic.new do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+<ul>
+  <% @topics.each do |topic| %>
+    <li><%= topic.title %>
+      <ul>
+        <% topic.comments.each do |comment| %>
+          <li><%= comment.title %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
