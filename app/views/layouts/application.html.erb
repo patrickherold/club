@@ -75,10 +75,16 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sort</h3>
+            <h3>Sort results</h3>
             <ul class="nav nav-list">
               <li><%= link_to "Rank", "?path1"  %></li>
               <li><%= link_to "Near", "/path2"  %></li>
+              <%= form_tag categories_path, :method => :get do %>
+                <p>
+                  <%= text_field_tag :search, params[:search] %>
+                  <%= submit_tag "Search Near", :name => nil %>
+                </p>
+              <% end %>
               <li><%= link_to "Recent", "/path3"  %></li>
             </ul>
           </div><!--/.well -->

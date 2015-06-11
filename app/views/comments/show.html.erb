@@ -1,2 +1,7 @@
-<h1>Comment: </h1>
+<%- model_class = Comment -%>
+<div class="page-header">
+  <h1><%= link_to "All Comments", comments_path %> | <b><%= @comment.title %></b></h1>
+</div>
+<div class="row">
 <p><%= @comment.title %></p>
+</div>

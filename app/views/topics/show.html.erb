@@ -1,12 +1,23 @@
-<h1>Topic: <%= @topic.title %></h1>
-<%= form_for Comment.new do |f| %>
-  <%= f.label :title %>
-  <%= f.text_area :title %>
-  <%= f.hidden_field :topic_id, :value => params[:id] %>
-  <%= f.submit %>
-<% end %>
-<ul>
-  <% @topic.comments.each do |comment| %>
-    <li><%= link_to comment.title, "/comments/#{comment.id}"%></li>
+<%- model_class = Category -%>
+<div class="page-header">
+  <h1><%= link_to "All Topics", topics_path %> | <b><%= @topic.title %></b></h1>
+</div>
+<%= paginate @comments  %>
+<div class="row">
+  <%= form_for Comment.new do |f| %>
+  <div class="col-sm-4">
+    <%= f.text_field(:title, :class => "form-control") %>
+    <%= f.hidden_field :topic_id, :value => params[:id] %>
+  </div>
+  <div class="col-sm-2">
+    <%= f.submit(:class => "form-control btn btn-success") %>
+  </div>
   <% end %>
-<ul>
+</div>
+<div class="row">
+  <ul>
+    <% @comments.each do |comment| %>
+      <li><h3><%= link_to comment.title, "/comments/#{comment.id}"%></h3></li>
+    <% end %>
+  </ul>
+</div>

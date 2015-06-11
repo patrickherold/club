@@ -1,6 +1,22 @@
-<h1>Comments</h1>
-<ul>
-  <% for comment in @comments %>
-    <li><%= comment.title %></li>
+<%- model_class = Comment -%>
+<div class="page-header">
+  <h1>Comments</h1>
+</div>
+<%= paginate @comments  %>
+<div class="row">
+  <%= form_for Comment.new do |f| %>
+  <div class="col-sm-4">
+    <%= f.text_field(:title, :class => "form-control") %>
+  </div>
+  <div class="col-sm-2">
+    <%= f.submit(:class => "form-control btn btn-success") %>
+  </div>
   <% end %>
-</ul>
+</div>
+<div class="row">
+  <ul>
+    <% for comment in @comments %>
+      <li><h3><%= link_to comment.title, "/comments/#{comment.id}"%></h3></li>
+    <% end %>
+  </ul>
+</div>

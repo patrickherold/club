@@ -1,12 +1,23 @@
-<h1>Category: <%= @category.title %></h1>
-<%= form_for Topic.new do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.hidden_field :category_id, :value => params[:id] %>
-  <%= f.submit %>
-<% end %>
-<ul>
-  <% @category.topics.each do |topic| %>
-    <li><%= link_to topic.title, "/topics/#{topic.id}"%></li>
+<%- model_class = Category -%>
+<div class="page-header">
+  <h1><%= link_to "All Categories", categories_path %> | <b><%= @category.title %></b></h1>
+</div>
+<%= paginate @topics  %>
+<div class="row">
+  <%= form_for Topic.new do |f| %>
+  <div class="col-sm-4">
+    <%= f.text_field(:title, :class => "form-control") %>
+    <%= f.hidden_field :category_id, :value => params[:id] %>
+  </div>
+  <div class="col-sm-2">
+    <%= f.submit(:class => "form-control btn btn-success") %>
+  </div>
   <% end %>
-<ul>
+</div>
+<div class="row">
+  <ul>
+    <% @category.topics.each do |topic| %>
+      <li><h3><%= link_to topic.title, "/topics/#{topic.id}"%></h3></li>
+    <% end %>
+  </ul>
+</div>

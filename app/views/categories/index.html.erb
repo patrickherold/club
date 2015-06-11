@@ -1,16 +1,22 @@
 <%- model_class = Category -%>
-<div class="page-header row">
+<div class="page-header">
   <h1>Categories</h1>
-  <div class="pull-right">
-    <%= form_for Category.new do |f| %>
-      <%= f.text_field :title %>
-      <%= f.submit %>
-    <% end %>
-  </div>
 </div>
-
-<ul>
-  <% for category in @categories %>
-    <li><%= link_to category.title, "/categories/#{category.id}"%></li>
+<%= paginate @categories  %>
+<div class="row">
+  <%= form_for Category.new do |f| %>
+  <div class="col-sm-4">
+    <%= f.text_field(:title, :class => "form-control") %>
+  </div>
+  <div class="col-sm-2">
+    <%= f.submit(:class => "form-control btn btn-success") %>
+  </div>
   <% end %>
-</ul>
+</div>
+<div class="row">
+  <ul>
+    <% for category in @categories %>
+      <li><h3><%= link_to category.title, "/categories/#{category.id}"%></h3></li>
+    <% end %>
+  </ul>
+</div>
