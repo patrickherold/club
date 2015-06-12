@@ -15,18 +15,18 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
-  resources :users
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+  resources :users
+    
   resources :categories do
     collection do
-      get :topics  # add this line 
+      get :topics
     end
   end
   
   resources :topics do
     collection do
-      get :comments  # add this line 
+      get :comments
     end
   end
   

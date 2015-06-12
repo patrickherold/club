@@ -23,67 +23,33 @@
     <%= error_span(@user[:first_name]) %>
   </div>
   <div class="control-group">
+    <%= f.label :middle_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :middle_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@user[:middle_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@user[:last_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :nickname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nickname, :class => 'form-control' %>
+    </div>
+    <%= error_span(@user[:nickname]) %>
+  </div>
+  
+  <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :email, :class => 'form-control' %>
     </div>
     <%= error_span(@user[:email]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :encrypted_password, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :encrypted_password, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:encrypted_password]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :reset_password_token, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :reset_password_token, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:reset_password_token]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :reset_password_sent_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :reset_password_sent_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:reset_password_sent_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :remember_created_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :remember_created_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:remember_created_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :current_sign_in_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :current_sign_in_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:current_sign_in_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_sign_in_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_sign_in_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:last_sign_in_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :current_sign_in_ip, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :current_sign_in_ip, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:current_sign_in_ip]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_sign_in_ip, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_sign_in_ip, :class => 'form-control' %>
-    </div>
-    <%= error_span(@user[:last_sign_in_ip]) %>
   </div>
 
 

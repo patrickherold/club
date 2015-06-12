@@ -1,13 +1,20 @@
 class CategoriesController < ApplicationController
   def index
-    @q = Category.order(:created_at).page(params[:page])
-    @categories = @q.result(distinct: true)
+    @categories = Category.order(:created_at).page(params[:page])
   end
-  
   
   def show
     @category = Category.find(params[:id])
     @topics = Topic.order(:created_at).page(params[:page])
+  end
+  
+  def edit
+    @category = Category.find(params[:id])
+    @topics = Topic.order(:created_at).page(params[:page])
+  end
+  
+  def update
+    @category = Category.find(params[:id])
   end
   
   def create
